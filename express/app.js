@@ -1,21 +1,23 @@
-//CAAS Connectivity as a Service
+// requiere el paquete y asignamos el puerto
 const express = require('express');
 const port = 3002;
 
-//para permitir manejo de post y put
+//para permitir manejo de POST y PUT 
 const bodyParser = require('body-parser');
-const routes = require('./routes/routes');
+const routes = require('./routes/routes')
 const app = express();
 
+// Usar Node.js body parsing middleware 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true,
 }));
+
 routes(app);
 
-//iniciar el servidor
+// Iniciar el servidor 
 const server = app.listen(port, (error) => {
-    if (error) return console.log('error: ${error}');
+    if (error) return console.log(`Error: ${error}`);
 
-    console.log('el servidor escucha en el puerto ${server.address().port}');
+    console.log(`El servidor escucha en el puerto ${server.address().port}`);
 });
