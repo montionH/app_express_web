@@ -1,3 +1,4 @@
+//CAAS Connectivity as a Service
 const express = require('express');
 const port = 3002;
 
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({
 }));
 routes(app);
 
+//iniciar el servidor
 const server = app.listen(port, (error) => {
     if (error) return console.log('error: ${error}');
 
